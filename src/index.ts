@@ -7,6 +7,21 @@ export type {
 } from '@sudobility/types';
 import type { BaseResponse } from '@sudobility/types';
 
+// Re-export entity types from @sudobility/types
+export type {
+  Entity,
+  EntityWithRole,
+  EntityMember,
+  EntityInvitation,
+  EntityPermissions,
+  CreateEntityRequest,
+  UpdateEntityRequest,
+  InviteMemberRequest,
+  UpdateMemberRoleRequest,
+} from '@sudobility/types';
+
+export { EntityType, EntityRole, InvitationStatus } from '@sudobility/types';
+
 // =============================================================================
 // Type Aliases
 // =============================================================================
@@ -73,6 +88,8 @@ export interface History {
   id: string;
   /** Foreign key reference to the owning user */
   user_id: string;
+  /** Foreign key reference to the owning entity */
+  entity_id: string;
   /** ISO 8601 formatted datetime when the event occurred */
   datetime: string;
   /** Numeric value associated with this history record, must be positive */
